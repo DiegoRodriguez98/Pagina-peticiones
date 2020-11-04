@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>HTTP Diego Rodriguez</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+    </head>
+    <body>
+        <link href="CSS/Styles.css" rel="stylesheet" type="text/css"/>
+        <h1>¿Que es una petición en HTTP?</h1>
+        <div></div>
+        <article>
+            <p>Un conjunto de métodos de petición para indicar la acción que se desea realizar
+                para un recurso determinado. Aunque estos también pueden ser sustantivos, estos 
+                métodos de solicitud a veces son llamados HTTP verbs.</p>
+            <img src="materials/principal.png" alt=""/>
+            <hr>
+        </article>
+        <h2>Petición GET</h2>
+        <p>El método GET se utiliza para leer una representación de un recurso (Recuperar datos).
+            Esta es el metodo o la petición principal en HTTP.
+            Un ejemplo de peticion GET puede ser el siguiente como se muestra en la imagen, en este caso
+            "index.html" es la pagina de inicio de una pagina web.      
+          </p>
+          <img src="materials/Get.PNG" alt=""/>
+          <p>El método GET tambien se puede utilizar en los form, donde se pueden agregar valores(values) a buscar en la URL</p>
+          <img src="materials/get 2.PNG" alt=""/>
+          <p>este método tambien permite añadir más información o parametros a la solicitud, la cual es procesada por el servidor, por ejemplo:</p>
+          <ul>
+              <li>La secuencia de petición (query string) se inicia con un signo de interrogación “?”.</li>
+              <li>Todos los parámetros se componen de un nombre y un valor: “Nombre=Valor”.</li>
+              <li>Si se han de adjuntar varios parámetros, se unen con un signo “&”.</li>
+          </ul>      
+          <img src="materials/get3.PNG" alt=""/><hr>
+          <img src="materials/putputput.jpg" alt=""/>
+          <hr>
+          <h2>Petición POST</h2>
+          <p>Cuando se tienen que enviar al servidor web paquetes grandes de datos, como imágenes o
+              datos de formulario de carácter privado, como se menciono anteriormente este método es indicado
+          para enviar distintos tipos de archivos o textos largos, funciones que la peteción GET no es capas de realizar.
+          El metodo POST se utiliza mediante los form, manejando la misma estructura que se demostro anteriomente con el método GET.</p>
+          <img src="materials/POST.PNG" alt=""/>
+          <hr>
+          <h2>Petición PUT</h2>
+          <p>Este método o petición es principalmente utilizado para realizar modificaciones o actualizaciones, este verbo al igual que DELETE y GET
+          son verbos "Idempotentes", lo cual significa que pueden realizar una misma acción varias veces y en todas obtener la misma respuesta
+          o estado el cual fue obtenido en la misma llamada. </p>          
+          <h2>Petición DELETE</h2>
+          <hr>
+          <P>En este caso y como su nombre lo indica esta petición se encarga de eliminar un recurso o bien sea un registro de la base de datos
+          esto depende del tipo de apliacion Web que se este manejando.</P>
+          <img src="materials/delte.PNG" alt=""/><br>
+          <h2>Generalidades</h2>
+          <img name="img2" src="materials/bodypeticiones.jpg" alt=""/><br>
+          <hr>
+          <h1>Códigos de estado HTTP</h1>
+          <P>Los códigos de estado HTTP describen de forma abreviada la respuesta HTTP. Este protocolo clasifica los codigos o errores
+          en 5 categorias que son:</P>
+          <ul>
+              <li>1. 1XX Respuestas informativas</li>
+              <li>2. 2XX Peticiones correctas</li>
+              <li>3. 3XX Redirecciones</li>              
+              <li>4. 4XX Errores del cliente</li>
+              <li>5. 5XX Errores de servidor</li>
+          </ul>
+          <h2>1. 1XX Respuestas informativas</h2>
+          <p>Este tipo de código de estado indica una respuesta provisional.</p>
+          <ul>
+              <li>100 Continue. El servidor ha recibido los headers del request y el cliente debería proceder a enviar el cuerpo de la respuesta.</li>
+              <li>101 Switching Protocols. El requester ha solicitado al servidor conmutar protocolos.</li>
+              <li>102 Processing. Usado en requests para reanudar peticiones PUT o POST abortadas.</li>
+          </ul>
+          <hr>
+          <h2>2. 2XX Peticiones correctas</h2>
+          <p>Este código de estado indica que la acción solicitada por el cliente ha sido recibida, entendida, aceptada y procesada correctamente.</p>
+          <ul>
+              <li>200 OK. El request es correcto.</li>
+              <li>201 Created. El request se ha completado y se ha creado un nuevo recurso.</li>
+              <li>202 Aceptada. El request se ha aceptado para procesarlo.</li>
+              <li>203 Non-Authoritative Information.</li>
+              <li>204 No Content. El request se ha procesado correctamente, pero no devuelve ningún contenido.</li>
+              <li>205 Reset Content. El request se ha procesado correctamente, pero no devuelve ningún contenido y se requiere que el requester recargue el contenido.</li>
+              <li>206 Partial Content. El servidor devuelve sólo parte del recurso debido a una limitación que ha configurado el cliente</li>
+              <li>207 Multi-Status. Puede contener un número de códigos de estado diferentes dependiendo del número de sub-requests.</li>
+          </ul>
+          <hr>
+          <h2>3. 3XX Redirecciones</h2>
+          <p>El cliente ha de tomar una acción adicional para completar el request..</p>
+          <ul>
+              <li>300 Multiple Choices. Es una lista de enlaces.</li>
+              <li>301 Moved Permanently. La página solicitada se ha movido permanentemente a una nueva URI.</li>
+              <li>302 Found. La página solicitada se ha movido temporalmente a una nueva URI.</li>
+              <li>303 See Other. La página solicitada se puede encontrar en una URL diferente.</li>
+              <li>304 Not Modified. Indica que la página solicitada no se ha modificado desde la última petición.</li>
+              <li>305 Use Proxy (desde HTTP/1.1). El recurso solicitado sólo está disponible a través de proxy.</li>
+              <li>307 Temporary Redirect (desde HTTP/1.1). La página solicitada se ha movido temporalmente a otra URI. Al contrario que con la 302.</li>
+              <li>308 Permanent Redirect. El request y futuros requests deberían repetirse usando otro URI</li>
+          </ul>
+          <hr>
+          <h2>4. 4XX Errores del cliente </h2>
+          <P>El servidor debe incluir una entidad que contiene una explicación del error, y si es temporal o permanente.</P>
+          <ul>
+              <li>400 Bad Request. El servidor no puede o no va a procesar el request.</li>
+              <li>401 Unauthorized, usa cuando se requiere una autentificación y ha fallado o todavía no se a facilitado.</li>
+              <li>402 Payment Required. La intención original fue para pago con tarjeta o micropago.</li>
+              <li>403 Forbidden. El request fue válido pero el servidor se niega a responder.</li>
+              <li>404 Not Found. El recurso del request no se ha podido encontrar.</li>
+              <li>405 Method Not Allowed. Se ha hecho un request con un recurso usando un método request no soportado</li>
+              <li>406 Not Acceptable. El recurso solicitado solo genera contenido no aceptado de acuerdo con los headers Accept</li>
+              <li>407 Proxy Authentication. El cliente se debe identificar primero con el proxy</li>
+              <li>408 Request Timeout. </li>
+              <li>409 Conflict. Conflicto en el request, como cuando se actualizan al mismo tiempo dos recursos.</li>
+              <li>410 Gone. El recurso solicitado no está disponible ni lo estará en el futuro.</li>
+              <li>411 Length Required. El request no especificó la longitud del contenido, la cual es requerida por el recurso solicitado.</li>
+              <li>412 Precondition Failed. El servidor no cumple una de las precondiciones.</li>
+              <li>413 Request Entity Too Large. El request es más largo que el que está dispuesto a aceptar el servidor.</li>
+              <li>414 Request-URI Too Long. El URI es muy largo para que el servidor lo procese.</li>
+              <li>415 Unsupported Media Type. La entidad request tiene un media type que el servidor o recurso no soportan.</li>
+              <li>416 Requested Range Not Satisfiable. El cliente ha solicitado una porción de archivo, pero el servidor no puede ofrecer esa porción.</li>
+              <li>417 Expectation Failed. El servidor no puede cumplir los requerimientos del header del request.</li>              
+          </ul>
+          <div></div>
+          <img src="materials/error.jpg" alt=""/>
+          <hr>
+          <h2>5. 5XX Errores del servidor</h2>
+          <p>El servidor ha fallado al completar una solicitud aparentemente válida. Cuando los códigos de estado empiezan por 5 indica casos en los que el servidor sabe que tiene un error o realmente es incapaz de procesar el request.</p>
+          <ul>
+              <li>500 Internal Server Error. Error genérico, cuando se ha dado una condición no esperada y no se puede concretar el mensaje.</li>
+              <li>501 Not Implemented. El servidor o no reconoce el método del request.</li>
+              <li>502 Bad Gateway. El server actuaba como puerta de entrada o proxy y recibió una respuesta inválida</li>
+              <li>503 Service Unavailable. El servidor está actualmente no disponible</li>
+              <li>504 Gateway Timeout. El servidor estaba actuando como puerta de entrada o proxy y no recibió una respuesta oportuna por parte del servidor.</li>
+              <li>505 HTTP Version Not Supported. El servidor no soporta la versión del protocolo HTTP usada en el request.</li>
+              
+          </ul>
+          <img src="materials/502.png" alt=""/>
+          <hr>
+          <footer>Diego Rodriguez</footer>          
+    </body>
+</html>
+
